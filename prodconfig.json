@@ -1,0 +1,11 @@
+{
+    "region":"ap-south-1",
+    "AccountId":"902455950835",
+    "vpcid":"vpc-0112ae169fc547ec3",
+    "EIP_AllocationID1":"eipalloc-06ff6e2dd9992cd39",
+    "EIP_AllocationID2":"eipalloc-063631b185c24d383",
+    "role_arn":"arn:aws:iam::902455950835:role/TPS-Cloudwatch",
+    "key":"TPGS-JENKINS",
+    "instance_type":"m5a.xlarge",
+    "security_group_id":"sg-0ee1849e8b92ff65f"
+}
