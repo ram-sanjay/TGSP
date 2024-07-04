@@ -1,0 +1,74 @@
+Resources:
+  PermissionBoundary:
+    Type: AWS::IAM::ManagedPolicy
+    Properties:
+      ManagedPolicyName: "Permission-boundary"
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Sid: DisableRegions
+            Effect: Deny
+            NotAction:
+              - "a4b:*"
+              - "acm:*"
+              - "aws-marketplace-management:*"
+              - "aws-marketplace:*"
+              - "budgets:*"
+              - "ce:*"
+              - "chime:*"
+              - "cloudfront:*"
+              - "config:*"
+              - "cur:*"
+              - "directconnect:*"
+              - "ec2:DescribeRegions"
+              - "ec2:DescribeTransitGateways"
+              - "ec2:DescribeVpnGateways"
+              - "fms:*"
+              - "globalaccelerator:*"
+              - "health:*"
+              - "iam:*"
+              - "importexport:*"
+              - "kms:*"
+              - "mobileanalytics:*"
+              - "networkmanager:*"
+              - "organizations:*"
+              - "pricing:*"
+              - "route53:*"
+              - "route53domains:*"
+              - "s3:GetAccountPublic*"
+              - "s3:ListAllMyBuckets"
+              - "s3:PutAccountPublic*"
+              - "shield:*"
+              - "sts:*"
+              - "support:*"
+              - "trustedadvisor:*"
+              - "waf-regional:*"
+              - "waf:*"
+              - "wafv2:*"
+              - "wellarchitected:*"
+            Resource: "*"
+            Condition:
+              StringNotEquals:
+                aws:RequestedRegion:
+                  - "ap-south-1"
+          - Effect: Deny
+            Action: 'iam:CreateUser'
+            Resource: '*'
+          - Effect : Allow
+            Action : '*'
+            Resource: '*'
+
+  MyPermissionSet:
+    Type: AWS::SSO::PermissionSet
+    Properties:
+      Name: MyPermissionSet
+      Description: My IAM IC Permission Set
+      SessionDuration: 3600
+      InlinePolicy:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action:
+              - "s3:GetObject"
+            Resource: "*"
+      PermissionsBoundary: !Ref PermissionBoundary

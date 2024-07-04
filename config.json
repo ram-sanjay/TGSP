@@ -1,0 +1,17 @@
+{
+    "region":"ap-south-1",
+    "AccountId":"",
+    "vpcid":"vpc-",
+    "instance_id":"i-",
+    "test_eip":"eipalloc-",
+    "EIP_AllocationID1":"eipalloc-",
+    "EIP_AllocationID2":"eipalloc-",
+    "Subnet1":"subnet-",
+    "Subnet2":"subnet-",
+    "role_arn":"arn:aws:iam::role/TPS-Cloudwatch",
+    "key":"tpgs-new",
+    "instance_type":"t2.micro",
+    "ami":"ami-",
+    "security_group_id":"sg-",
+    "availability_zones":["ap-south-1a","ap-south-1b"]
+}
