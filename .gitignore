@@ -21,3 +21,8 @@ venv.bak/
 .cdk.staging/
 cdk.out/
 prodconfig.json
+source.bat
+cf.yaml
+cdk.context.json
+tgsp/
+tests/
